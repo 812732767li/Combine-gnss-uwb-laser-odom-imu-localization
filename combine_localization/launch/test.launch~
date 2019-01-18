@@ -1,0 +1,22 @@
+<launch>
+
+  <!--combine localization
+  <include file="$(find combine_localization)/launch/combine_localization.launch"/> -->
+  <include file="$(find amcl)/launch/amcl.launch"/>  
+
+<node pkg="mrpt_localization" type="mrpt_localization_node" name="mrpt_localization_node" output="screen" /> 
+
+<node pkg="uwb_localization" type="uwb_localization_node" name="uwb_localization" output="screen" >
+	<!--目前支持最大基站数目为8个，若需支持更多，需按照说明更改源代码-->
+
+  </node>
+<include file="$(find map_server)/launch/test.launch"/>  
+
+
+  
+
+
+ <!----><node pkg="position_combine" type="position_combine_node" name="position_combine_node" output = "screen"/>
+
+
+</launch> 
